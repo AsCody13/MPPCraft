@@ -1,0 +1,11 @@
+main: ascody94.mppcraft.Client
+name: MPPCraft
+version: 1.0
+#api-version:
+#  - 1.16
+#  - 1.17
+#  - 1.18
+commands:
+  pmppc:
+    description: PrviateCommand
+# yes, im idiot
