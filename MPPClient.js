@@ -1,4 +1,3 @@
-
 if (typeof module !== "undefined") {
 	module.exports = Client;
 	var WebSocket = require("ws");
@@ -8,8 +7,6 @@ if (typeof module !== "undefined") {
 } else {
 	this.Client = Client;
 }
-
-
 function mixin(obj1, obj2) {
 	for (var i in obj2) {
 		if (obj2.hasOwnProperty(i)) {
@@ -235,7 +232,7 @@ Client.prototype.participantUpdate = function (update) {
 		part = update;
 		this.ppl[part.id] = part;
 		this.emit("participant added", part);
-		this.emit("mc", JSON.stringify({text:`[${part.id}] ${part.name} Joined.`,color:part.color})); // cody minecraft
+		this.emit("mc", JSON.stringify({text:`[${part.id.substring(0,6)}] ${part.name} Joined.`,color:part.color})); // cody minecraft
 		this.emit("count", this.countParticipants());
 	} else {
 		if (update.x) part.x = update.x;
@@ -249,7 +246,7 @@ Client.prototype.removeParticipant = function (id) {
 		var part = this.ppl[id];
 		delete this.ppl[id];
 		this.emit("participant removed", part);
-		this.emit("mc", JSON.stringify({text:`[${id}] ${part.name} Left.`,color:part.color})); // cody minecraft
+		this.emit("mc", JSON.stringify({text:`[${id.substring(0,6)}] ${part.name} Left.`,color:part.color})); // cody minecraft
 		this.emit("count", this.countParticipants());
 	}
 };
