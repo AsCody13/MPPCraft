@@ -1,0 +1,30 @@
+buildscript { repositories { mavenCentral() }; dependencies { classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10" }}
+plugins {
+    id('org.jetbrains.kotlin.jvm') version '1.6.21'
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+group 'ascody94.mppcraft'
+version '0.0-SNAPSHOT'
+sourceCompatibility = 17
+targetCompatibility = 17
+repositories {
+    mavenCentral()
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+}
+dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.21")
+    compileOnly('org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT')
+    // compileOnly 'org.spigotmc:spigot:1.18.2-R0.1-SNAPSHOT' # build?
+}
+compileKotlin {
+    kotlinOptions.jvmTarget = "17"
+}
+jar {
+    manifest {
+        attributes 'Main-Class': "ascody94.mppcraft"
+    }
+    from { configurations.compileClasspath.collect {it.isDirectory()?it:zipTree(it)}}
+    archiveFileName = 'MPPCraft.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
