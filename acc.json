@@ -1,0 +1,8 @@
+{
+  "host": "Server Adress",
+  "username": "Minecraft account",
+  "password": "Account's password",
+  "port": 25565,
+  "version": false,
+  "auth": "microsoft"
+}
