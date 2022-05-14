@@ -1,0 +1,14 @@
+{
+  "name": "MPPCraft",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "AsCody94",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "https-proxy-agent": "^5.0.1",
+    "mineflayer": "^4.3.0",
+    "socks-proxy-agent": "^6.2.0",
+    "ws": "^8.6.0"
+  }
+}
